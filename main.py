@@ -154,6 +154,44 @@ if __name__ == "__main__":
  
 # {
 #   "work_item_id": "wi_d2c1cc42"
-
 # } 
 
+#=====================================================end 
+# CREATE TABLE "drift-monitor"."drift_monitor_schema"."notifications" (
+#     "notification_id" character varying(255) PRIMARY KEY,
+#     "work_item_id" character varying(255),
+#     "incident_id" character varying(255),
+#     "subject" text,
+#     "recipients" jsonb, 
+#     "delivery_status" character varying(50),
+#     "delivery_error" text,
+#     "created_at" timestamp with time zone
+# );
+ 
+# CREATE TABLE "drift-monitor"."drift_monitor_schema"."incident_summaries" (
+#     "work_item_id" character varying(255) PRIMARY KEY,
+#     "provider" character varying(255),
+#     "provider_error" text,
+#     "summary" text,
+#     "summary_preview" text,
+#     "created_at" timestamp with time zone
+# );
+ 
+# CREATE TABLE "drift-monitor"."drift_monitor_schema"."notification_enrichments" (
+#     "work_item_id" character varying(255) PRIMARY KEY,
+#     "summary" text,
+#     "total_entries_scanned" integer,
+#     "keyword_counts" jsonb,
+#     "severity_counts" jsonb
+# );
+ 
+# CREATE TABLE "drift-monitor"."drift_monitor_schema"."actions" (
+#     "action_id" character varying(255) PRIMARY KEY,
+#     "work_item_id" character varying(255),
+#     "action_type" character varying(50),
+#     "agent_name" character varying(255),
+#     "status" character varying(50),
+#     "summary" text,
+#     "transitions" jsonb,
+#     "timestamp" timestamp with time zone
+# );
