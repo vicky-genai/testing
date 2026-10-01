@@ -97,4 +97,63 @@ def run_offline_test():
     print(f"Response Body:\n{json.dumps(response.json(), indent=2)}")
  
 if __name__ == "__main__":
-    run_offline_test()
+    run_offline_test() 
+
+
+##================================End================================================== 
+
+# INSERT INTO drift_monitor_schema.incidents (
+#     incident_id,
+#     dedup_key,
+#     cluster,
+#     nodepool,
+#     metric,
+#     status,
+#     anomaly_start,
+#     anomaly_end,
+#     drift_summary,
+#     transitions,
+#     audit
+# ) VALUES (
+#     'inc_52db62c45',
+#     'cloud-gebu-ips:drift-monitoring-cluster:default-pool:kubernetes.io_node_cpu_allocatable_utilization',
+#     'drift-monitoring-cluster',
+#     'default-pool',
+#     'kubernetes.io/node/cpu/allocatable_utilization',
+#     'OPEN',
+#     '2026-07-06T09:25:00.707368+00:00',
+#     NULL,
+#     '{"p50_base": 0.35, "p95_base": 0.58, "p50_cur": 0.35, "p95_cur": 0.78, "d_abs": 0.2, "d_rel": 0.3448, "w": 0.2}'::jsonb,
+#     '[{"from_state": "NORMAL", "to_state": "DRIFTING", "timestamp": "2026-07-06T09:25:00.707368+00:00", "work_item_id": "wi_d2c1cc45", "metrics": {"p50_cur": 0.35, "p95_cur": 0.78, "d_abs": 0.2, "d_rel": 0.3448, "w": 0.2}}]'::jsonb,
+#     '{"created_at": "2026-07-06T09:25:00.707368+00:00", "updated_at": "2026-07-06T09:25:00.707368+00:00", "policy_version": "v1.0"}'::jsonb
+# );
+ 
+# INSERT INTO drift_monitor_schema.work_items (
+#     work_item_id,
+#     incident_id,
+#     dedup_key,
+#     task_type,
+#     status,
+#     payload,
+#     workflow_enrichment_status,
+#     workflow_notification_status,
+#     created_at,
+#     updated_at
+# ) VALUES (
+#     'wi_d2c1cc45',
+#     'inc_52db62c45',
+#     'cloud-gebu-ips:drift-monitoring-cluster:default-pool:kubernetes.io_node_cpu_allocatable_utilization',
+#     'ENRICHMENT',
+#     'PENDING',
+#     '{"triggering_metrics": {"p50_cur": 0.35, "p95_cur": 0.78, "d_abs": 0.2, "d_rel": 0.3448, "w": 0.2}}'::jsonb,
+#     'NOT_STARTED',
+#     'NOT_SENT',
+#     '2026-07-06T09:25:00.707586+00:00',
+#     '2026-07-06T09:25:00.707586+00:00'
+# );
+ 
+# {
+#   "work_item_id": "wi_d2c1cc42"
+
+# } 
+
